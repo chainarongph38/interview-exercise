@@ -1927,26 +1927,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log('Component mounted.');
   },
+  data: function data() {
+    return {
+      name: '',
+      email: '',
+      phone: '',
+      message: '',
+      nameError: '',
+      emailError: '',
+      phoneError: '',
+      messageError: ''
+    };
+  },
   methods: {
-    submitContact: function submitContact(event) {
+    submitContact: function submitContact() {
       axios({
         method: 'POST',
         url: '/contact',
         data: {
-          name: $('#name').val(),
-          email: $('#email').val(),
-          phone: $('#phone').val(),
-          message: $('#message').val()
+          name: this.name,
+          email: this.email,
+          phone: this.phone,
+          message: this.message
         }
       }).then(function (response) {
         console.log(response);
       })["catch"](function (e) {
-        console.log(e);
-      });
+        if (e.response.status === 422) {
+          this.nameError = _.get(e, 'response.data.errors.name[0]', '');
+          this.emailError = _.get(e, 'response.data.errors.email[0]', '');
+          this.phoneError = _.get(e, 'response.data.errors.phone[0]', '');
+          this.messageError = _.get(e, 'response.data.errors.message[0]', '');
+        }
+      }.bind(this));
     }
   }
 });
@@ -37604,13 +37625,190 @@ var render = function() {
           _vm._v(" "),
           _c("br"),
           _vm._v(" "),
-          _vm._m(0),
+          _c("div", { staticClass: "mb-4" }, [
+            _c(
+              "label",
+              {
+                staticClass: "block text-black-700 text-sm font-bold mb-2",
+                attrs: { for: "name" }
+              },
+              [_vm._v("\n                    Name\n                ")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.name,
+                  expression: "name"
+                }
+              ],
+              staticClass:
+                "border rounded w-full py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline",
+              attrs: {
+                name: "name",
+                id: "name",
+                type: "text",
+                placeholder: ""
+              },
+              domProps: { value: _vm.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.name = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "span",
+              {
+                staticClass: "text-xs text-red-700",
+                attrs: { id: "nameError" }
+              },
+              [_vm._v(_vm._s(_vm.nameError))]
+            )
+          ]),
           _vm._v(" "),
-          _vm._m(1),
+          _c("div", { staticClass: "mb-4" }, [
+            _c(
+              "label",
+              {
+                staticClass: "block text-black-700-700 text-sm font-bold mb-2",
+                attrs: { for: "name" }
+              },
+              [_vm._v("\n                    Email\n                ")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.email,
+                  expression: "email"
+                }
+              ],
+              staticClass:
+                "border rounded w-full py-2 px-3 text-black-700-700 leading-tight focus:outline-none focus:shadow-outline",
+              attrs: {
+                name: "email",
+                id: "email",
+                type: "text",
+                placeholder: ""
+              },
+              domProps: { value: _vm.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.email = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "span",
+              {
+                staticClass: "text-xs text-red-700",
+                attrs: { id: "emailError" }
+              },
+              [_vm._v(_vm._s(_vm.emailError))]
+            )
+          ]),
           _vm._v(" "),
-          _vm._m(2),
+          _c("div", { staticClass: "mb-4" }, [
+            _c(
+              "label",
+              {
+                staticClass: "block text-black-700 text-sm font-bold mb-2",
+                attrs: { for: "name" }
+              },
+              [_vm._v("\n                    Phone\n                ")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.phone,
+                  expression: "phone"
+                }
+              ],
+              staticClass:
+                "border rounded w-full py-2 px-3 text-black-700 leading-tight",
+              attrs: {
+                name: "phone",
+                id: "phone",
+                type: "text",
+                placeholder: ""
+              },
+              domProps: { value: _vm.phone },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.phone = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "span",
+              {
+                staticClass: "text-xs text-red-700",
+                attrs: { id: "phoneError" }
+              },
+              [_vm._v(_vm._s(_vm.phoneError))]
+            )
+          ]),
           _vm._v(" "),
-          _vm._m(3),
+          _c("div", { staticClass: "mb-4" }, [
+            _c(
+              "label",
+              {
+                staticClass: "block text-black-700 text-sm font-bold mb-2",
+                attrs: { for: "name" }
+              },
+              [_vm._v("\n                    Message\n                ")]
+            ),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.message,
+                  expression: "message"
+                }
+              ],
+              staticClass: "resize border rounded-md w-full py-2 px-3 ",
+              domProps: { value: _vm.message },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.message = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "span",
+              {
+                staticClass: "text-xs text-red-700",
+                attrs: { id: "messageError" }
+              },
+              [_vm._v(_vm._s(_vm.messageError))]
+            )
+          ]),
           _vm._v(" "),
           _c(
             "button",
@@ -37627,91 +37825,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mb-4" }, [
-      _c(
-        "label",
-        {
-          staticClass: "block text-black-700 text-sm font-bold mb-2",
-          attrs: { for: "name" }
-        },
-        [_vm._v("\n                    Name\n                ")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass:
-          "border rounded w-full py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline",
-        attrs: { name: "name", id: "name", type: "text", placeholder: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mb-4" }, [
-      _c(
-        "label",
-        {
-          staticClass: "block text-black-700-700 text-sm font-bold mb-2",
-          attrs: { for: "name" }
-        },
-        [_vm._v("\n                    Email\n                ")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass:
-          "border rounded w-full py-2 px-3 text-black-700-700 leading-tight focus:outline-none focus:shadow-outline",
-        attrs: { name: "email", id: "email", type: "text", placeholder: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mb-4" }, [
-      _c(
-        "label",
-        {
-          staticClass: "block text-black-700 text-sm font-bold mb-2",
-          attrs: { for: "name" }
-        },
-        [_vm._v("\n                    Phone\n                ")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass:
-          "border rounded w-full py-2 px-3 text-black-700 leading-tight",
-        attrs: { name: "phone", id: "phone", type: "text", placeholder: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mb-4" }, [
-      _c(
-        "label",
-        {
-          staticClass: "block text-black-700 text-sm font-bold mb-2",
-          attrs: { for: "name" }
-        },
-        [_vm._v("\n                    Message\n                ")]
-      ),
-      _vm._v(" "),
-      _c("textarea", {
-        staticClass: "resize border rounded-md w-full",
-        attrs: { name: "message", id: "message" }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

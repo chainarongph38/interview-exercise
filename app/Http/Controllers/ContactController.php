@@ -1,8 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Http\Requests\ContactPostRequest;
 
 class ContactController extends Controller
 {
@@ -11,10 +10,16 @@ class ContactController extends Controller
         return view('contact/index');
     }
 
-    public function store(Request $request)
+    public function store(ContactPostRequest $request)
     {
-//        print_r($request);
-//        alert($request);exit;
-        return response($request->all(), 200);
+        try {
+            $result = ['status' => 200];
+        } catch (\Exception $e) {
+            $result = [
+                'status' => 500,
+                'error' => $e,
+            ];
+        }
+        return response($result, $result['status']);
     }
 }
