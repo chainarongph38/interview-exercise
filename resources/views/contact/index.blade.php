@@ -9,6 +9,7 @@
 <body>
 <div id="app">
     <form-contact-component></form-contact-component>
+{{--    <loading-component></loading-component>--}}
 </div>
 
 <script src="{{ mix('js/app.js') }}"></script>

@@ -21,7 +21,7 @@
                     <input
                         class="border rounded w-full py-2 px-3 text-black-700-700 leading-tight focus:outline-none focus:shadow-outline"
                         name="email" id="email" type="text" placeholder="" v-model="email">
-                    <span class="text-xs text-red-700" id="emailError" >{{ emailError }}</span>
+                    <span class="text-xs text-red-700" id="emailError">{{ emailError }}</span>
                 </div>
                 <div class="mb-4">
                     <label class="block text-black-700 text-sm font-bold mb-2">
@@ -44,13 +44,15 @@
                 </button>
             </form>
         </div>
+        <loading-component :loading-hidden="this.loadingHidden"></loading-component>
     </div>
 </template>
 
 <script>
+import LoadingComponent from './LoadingComponent';
 export default {
-    mounted() {
-        console.log('Component mounted.')
+    components: {
+        LoadingComponent
     },
     data() {
         return {
@@ -62,17 +64,21 @@ export default {
             emailError: '',
             phoneError: '',
             messageError: '',
+            loadingHidden: true,
         }
     },
     methods: {
         submitContact: function () {
+            this.loadingHidden = false;
             axios({
                 method: 'POST',
                 url: '/contact',
                 data: {name: this.name, email: this.email, phone: this.phone, message: this.message},
             }).then(function (response) {
                 console.log(response)
+                this.loadingHidden = true;
             }).catch(function (e) {
+                this.loadingHidden = true;
                 if (e.response.status === 422){
                     this.nameError = _.get(e, 'response.data.errors.name[0]', '');
                     this.emailError = _.get(e, 'response.data.errors.email[0]', '');
