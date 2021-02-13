@@ -85,6 +85,8 @@ export default {
                     this.emailError = _.get(e, 'response.data.errors.email[0]', '');
                     this.phoneError = _.get(e, 'response.data.errors.phone[0]', '');
                     this.messageError = _.get(e, 'response.data.errors.message[0]', '');
+                } else {
+                    alert('System error');
                 }
             }.bind(this))
         },
