@@ -1974,6 +1974,10 @@ __webpack_require__.r(__webpack_exports__);
           this.messageError = _.get(e, 'response.data.errors.message[0]', '');
         }
       }.bind(this));
+    },
+    removeBorder: function removeBorder(event) {
+      var error = event.target.id + 'Error';
+      this[error] = '';
     }
   }
 });
@@ -37737,7 +37741,7 @@ var render = function() {
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),
-            _c("div", { staticClass: "mb-4" }, [
+            _c("div", { staticClass: "mb-2" }, [
               _c(
                 "label",
                 { staticClass: "block text-black-700 text-sm font-bold mb-2" },
@@ -37754,7 +37758,8 @@ var render = function() {
                   }
                 ],
                 staticClass:
-                  "border rounded w-full py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline",
+                  "border-2 rounded w-full py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline",
+                class: { "border-red-300": this.nameError },
                 attrs: {
                   name: "name",
                   id: "name",
@@ -37763,6 +37768,7 @@ var render = function() {
                 },
                 domProps: { value: _vm.name },
                 on: {
+                  keydown: _vm.removeBorder,
                   input: function($event) {
                     if ($event.target.composing) {
                       return
@@ -37772,17 +37778,12 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "text-xs text-red-700",
-                  attrs: { id: "nameError" }
-                },
-                [_vm._v(_vm._s(_vm.nameError))]
-              )
+              _c("span", { staticClass: "text-xs text-red-700 block h-4" }, [
+                _vm._v(_vm._s(_vm.nameError))
+              ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "mb-4" }, [
+            _c("div", { staticClass: "mb-2" }, [
               _c(
                 "label",
                 {
@@ -37801,7 +37802,8 @@ var render = function() {
                   }
                 ],
                 staticClass:
-                  "border rounded w-full py-2 px-3 text-black-700-700 leading-tight focus:outline-none focus:shadow-outline",
+                  "border-2 rounded w-full py-2 px-3 text-black-700-700 leading-tight focus:outline-none focus:shadow-outline",
+                class: { "border-red-300": this.emailError },
                 attrs: {
                   name: "email",
                   id: "email",
@@ -37810,6 +37812,7 @@ var render = function() {
                 },
                 domProps: { value: _vm.email },
                 on: {
+                  keydown: _vm.removeBorder,
                   input: function($event) {
                     if ($event.target.composing) {
                       return
@@ -37819,17 +37822,12 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "text-xs text-red-700",
-                  attrs: { id: "emailError" }
-                },
-                [_vm._v(_vm._s(_vm.emailError))]
-              )
+              _c("span", { staticClass: "text-xs text-red-700 block h-4" }, [
+                _vm._v(_vm._s(_vm.emailError))
+              ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "mb-4" }, [
+            _c("div", { staticClass: "mb-2" }, [
               _c(
                 "label",
                 { staticClass: "block text-black-700 text-sm font-bold mb-2" },
@@ -37846,7 +37844,8 @@ var render = function() {
                   }
                 ],
                 staticClass:
-                  "border rounded w-full py-2 px-3 text-black-700 leading-tight",
+                  "border-2 rounded w-full py-2 px-3 text-black-700 leading-tight",
+                class: { "border-red-300": this.phoneError },
                 attrs: {
                   name: "phone",
                   id: "phone",
@@ -37855,6 +37854,7 @@ var render = function() {
                 },
                 domProps: { value: _vm.phone },
                 on: {
+                  keydown: _vm.removeBorder,
                   input: function($event) {
                     if ($event.target.composing) {
                       return
@@ -37864,14 +37864,9 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "text-xs text-red-700",
-                  attrs: { id: "phoneError" }
-                },
-                [_vm._v(_vm._s(_vm.phoneError))]
-              )
+              _c("span", { staticClass: "text-xs text-red-700 block h-4" }, [
+                _vm._v(_vm._s(_vm.phoneError))
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "mb-4" }, [
@@ -37890,9 +37885,12 @@ var render = function() {
                     expression: "message"
                   }
                 ],
-                staticClass: "resize border rounded-md w-full py-2 px-3 ",
+                staticClass: "border-2 resize rounded-md w-full py-2 px-3",
+                class: { "border-red-300": this.messageError },
+                attrs: { id: "message" },
                 domProps: { value: _vm.message },
                 on: {
+                  keydown: _vm.removeBorder,
                   input: function($event) {
                     if ($event.target.composing) {
                       return
@@ -37902,14 +37900,9 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "text-xs text-red-700",
-                  attrs: { id: "messageError" }
-                },
-                [_vm._v(_vm._s(_vm.messageError))]
-              )
+              _c("span", { staticClass: "text-xs text-red-700 block h-4" }, [
+                _vm._v(_vm._s(_vm.messageError))
+              ])
             ]),
             _vm._v(" "),
             _c(
