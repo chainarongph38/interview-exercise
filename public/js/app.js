@@ -1929,8 +1929,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -37628,10 +37626,7 @@ var render = function() {
           _c("div", { staticClass: "mb-4" }, [
             _c(
               "label",
-              {
-                staticClass: "block text-black-700 text-sm font-bold mb-2",
-                attrs: { for: "name" }
-              },
+              { staticClass: "block text-black-700 text-sm font-bold mb-2" },
               [_vm._v("\n                    Name\n                ")]
             ),
             _vm._v(" "),
@@ -37677,8 +37672,7 @@ var render = function() {
             _c(
               "label",
               {
-                staticClass: "block text-black-700-700 text-sm font-bold mb-2",
-                attrs: { for: "name" }
+                staticClass: "block text-black-700-700 text-sm font-bold mb-2"
               },
               [_vm._v("\n                    Email\n                ")]
             ),
@@ -37724,10 +37718,7 @@ var render = function() {
           _c("div", { staticClass: "mb-4" }, [
             _c(
               "label",
-              {
-                staticClass: "block text-black-700 text-sm font-bold mb-2",
-                attrs: { for: "name" }
-              },
+              { staticClass: "block text-black-700 text-sm font-bold mb-2" },
               [_vm._v("\n                    Phone\n                ")]
             ),
             _vm._v(" "),
@@ -37772,10 +37763,7 @@ var render = function() {
           _c("div", { staticClass: "mb-4" }, [
             _c(
               "label",
-              {
-                staticClass: "block text-black-700 text-sm font-bold mb-2",
-                attrs: { for: "name" }
-              },
+              { staticClass: "block text-black-700 text-sm font-bold mb-2" },
               [_vm._v("\n                    Message\n                ")]
             ),
             _vm._v(" "),

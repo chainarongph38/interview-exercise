@@ -6,7 +6,7 @@
                 <h1 class="block text-black-700 font-bold mb-2 text-xl text-center">Contact</h1>
                 <br>
                 <div class="mb-4">
-                    <label class="block text-black-700 text-sm font-bold mb-2" for="name">
+                    <label class="block text-black-700 text-sm font-bold mb-2">
                         Name
                     </label>
                     <input
@@ -15,7 +15,7 @@
                     <span class="text-xs text-red-700" id="nameError">{{ nameError }}</span>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-black-700-700 text-sm font-bold mb-2" for="name">
+                    <label class="block text-black-700-700 text-sm font-bold mb-2">
                         Email
                     </label>
                     <input
@@ -24,7 +24,7 @@
                     <span class="text-xs text-red-700" id="emailError" >{{ emailError }}</span>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-black-700 text-sm font-bold mb-2" for="name">
+                    <label class="block text-black-700 text-sm font-bold mb-2">
                         Phone
                     </label>
                     <input
@@ -33,7 +33,7 @@
                     <span class="text-xs text-red-700" id="phoneError">{{ phoneError }}</span>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-black-700 text-sm font-bold mb-2" for="name">
+                    <label class="block text-black-700 text-sm font-bold mb-2">
                         Message
                     </label>
                     <textarea class="resize border rounded-md w-full py-2 px-3 " v-model="message"></textarea>
@@ -43,8 +43,6 @@
                     Send
                 </button>
             </form>
-
-
         </div>
     </div>
 </template>
