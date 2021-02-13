@@ -77,7 +77,8 @@ export default {
             }).then(function (response) {
                 console.log(response)
                 this.loadingHidden = true;
-            }).catch(function (e) {
+                alert('Send data success');
+            }.bind(this)).catch(function (e) {
                 this.loadingHidden = true;
                 if (e.response.status === 422){
                     this.nameError = _.get(e, 'response.data.errors.name[0]', '');

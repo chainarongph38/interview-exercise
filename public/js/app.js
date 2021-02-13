@@ -1964,7 +1964,8 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         console.log(response);
         this.loadingHidden = true;
-      })["catch"](function (e) {
+        alert('Send data success');
+      }.bind(this))["catch"](function (e) {
         this.loadingHidden = true;
 
         if (e.response.status === 422) {
